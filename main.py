@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect, url_for
+from flask import Flask, request, render_template, redirect, url_for, send_from_directory
 import requests
 import dash
 import dash_bootstrap_components as dbc
@@ -7,6 +7,8 @@ import dash_html_components as html
 import data_parse as dp
 import plotly.graph_objects as go
 import predictor as predictor
+import os
+import gunicorn
 
 
 server = Flask(__name__)
@@ -18,13 +20,13 @@ tabs = dp.table_for_vis()
 ## Columns ##
 columns = tabs["columns"]
 columns_for_table = []
-for column in columns :
+for column in columns:
     columns_for_table.append(html.Th(column))
 
 ## Rows ##
 rows = tabs["rows"]
 rows_for_table = []
-for column in columns :
+for column in columns:
     rows_for_table.append(html.Th(column))
 
 ## add organized columns into table ##
@@ -48,8 +50,8 @@ for index, row in rows.iterrows():
 
 ## add organized columns into table ##
 table_body = [html.Tbody(
-                    rows_for_table
-                    )]
+    rows_for_table
+)]
 
 ### Parse Data for Vis1 ################################################################################################
 vis_count_by_date = dp.vis_count_by_date()
@@ -63,11 +65,15 @@ visd2 = dp.vis_rel_count_temp()
 heatfig = dp.vis_heatmap()
 
 
-
-@server.route("/")
+@server.route("/", method=['GET'])
 @server.route("/login", methods=['GET'])
 def index():
     return render_template('login.html')
+
+
+@server.route("/favicon.ico", methods=['GET'])
+def index():
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 
 ########################################################################################################################
@@ -88,7 +94,8 @@ tab = dbc.Container(
                     [
                         html.H2("Raw Dataset of Bike Rentals in West Governors City", style={"color": "#de795b"}),
                         html.H4("This shows only 30 rows of all dataset.", style={"color": "#5bc0de"}),
-                        html.H6("(If you need the whole dataset, please contact City Hall Public Information Center)", style={"color": "black"}),
+                        html.H6("(If you need the whole dataset, please contact City Hall Public Information Center)",
+                                style={"color": "black"}),
                         dbc.Table(table_header + table_body,
                                   bordered=True,
                                   dark=True,
@@ -233,10 +240,10 @@ def predict():
         temp = request.values["temperature"]
         humidity = request.values["humidity"]
         weather = request.values["weather"][0:1]
-        predict_attr = {"weather":weather, "temp":temp, "humidity":humidity}
+        predict_attr = {"weather": weather, "temp": temp, "humidity": humidity}
         ml_model = predictor.predictor(predict_attr)
         tmrw_demand = int(round(ml_model["tmrw_demand"]))
-        score = (round(ml_model["score"], 3))*100
+        score = (round(ml_model["score"], 3)) * 100
 
         return render_template("predict.html", tmrw_demand=tmrw_demand, score=score)
     else:
@@ -244,4 +251,4 @@ def predict():
 
 
 if __name__ == "__main__":
-    server.run(host="0.0.0.0",debug=True)
+    server.run(host="0.0.0.0", debug=True)

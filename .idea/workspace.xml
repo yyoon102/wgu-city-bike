@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a8700ce4-b00b-41da-8ec4-a2c3913bb440" name="Default Changelist" comment="" />
+    <list default="true" id="a8700ce4-b00b-41da-8ec4-a2c3913bb440" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/static/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wgufav.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wgufav.png" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,19 +35,19 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/data" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Yonghak\PycharmProjects\bike-demand-prediction" />
-      <recent name="C:\Users\Yonghak\PycharmProjects\bike-demand-prediction\templates" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Yonghak\Desktop\wgu-city-bike\static" />
       <recent name="C:\Users\Yonghak\PycharmProjects\bike-demand-prediction\data" />
       <recent name="C:\Users\Yonghak\PycharmProjects\bike-demand-prediction\templates" />
       <recent name="C:\Users\Yonghak\PycharmProjects\bike-demand-prediction" />
       <recent name="C:\Users\Yonghak\PycharmProjects\bike-demand-prediction\static\img" />
-      <recent name="C:\Users\Yonghak\PycharmProjects\bike-demand-prediction\static" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Yonghak\PycharmProjects\bike-demand-prediction" />
+      <recent name="C:\Users\Yonghak\PycharmProjects\bike-demand-prediction\templates" />
     </key>
   </component>
   <component name="RunManager" selected="Python.main">
@@ -143,10 +150,11 @@
       <screen x="-1920" y="0" width="1536" height="832" />
     </state>
     <state width="498" height="446" key="SwitcherDM/-1920.0.1536.832/0.0.1920.1040@-1920.0.1536.832" timestamp="1584157074892" />
-    <state x="-1455" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1584125693801">
-      <screen x="-1920" y="0" width="1536" height="832" />
+    <state x="581" y="298" key="com.intellij.ide.util.TipDialog" timestamp="1584248399476">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-1455" y="238" key="com.intellij.ide.util.TipDialog/-1920.0.1536.832/0.0.1920.1040@-1920.0.1536.832" timestamp="1584125693801" />
+    <state x="581" y="298" key="com.intellij.ide.util.TipDialog/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1584248399476" />
     <state x="-1512" y="28" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584137198171">
       <screen x="-1920" y="0" width="1536" height="832" />
     </state>

@@ -65,15 +65,15 @@ visd2 = dp.vis_rel_count_temp()
 heatfig = dp.vis_heatmap()
 
 
-@server.route("/", method=['GET'])
+@server.route("/", methods=['GET'])
 @server.route("/login", methods=['GET'])
 def index():
     return render_template('login.html')
 
 
 @server.route("/favicon.ico", methods=['GET'])
-def index():
-    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+def favicon():
+    return send_from_directory(os.path.join(server.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 
 ########################################################################################################################
@@ -215,10 +215,6 @@ def forgotpw():
 def login():
     if request.method == "POST":
         if admin_id == request.form['login'] and admin_pw == request.form['password']:
-            global session
-            session = requests.Session()
-            session.params["logged"] = False
-            session.params["logged"] = True
             return redirect("/main", code=307)
         else:
             return render_template("wronginfo.html")
@@ -251,4 +247,4 @@ def predict():
 
 
 if __name__ == "__main__":
-    server.run(host="0.0.0.0", debug=True)
+    server.run(debug=True)
